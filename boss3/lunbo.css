@@ -1,0 +1,54 @@
+*{ margin: 0; padding: 0; text-decoration: none;}
+		body{background: black;}
+		.container{
+			height: 768px;
+			width: 1366px;
+			line-height: 768px;
+			border: 3px black solid;
+			margin: 0 auto;
+			overflow: hidden;
+			position: relative;
+			top: 20px;
+		}
+		.container:hover .button{display: block;}
+		.container:hover .button1{display: block;}
+		#pic{
+			height: 1366px;
+			width: 9562px;
+			position: absolute;
+			z-index: -1;
+		}
+		#pic img{float: left;}
+		.button{
+			position: absolute;
+			display: none;
+			font-size: 60px;
+			font-weight: bold;
+			text-align: center;
+			width: 70px;
+			height: 70px;
+			line-height: 70px;
+			top: 359px;
+			background: RGBA(0,0,0,.1);
+			color: white;
+		}
+		.button:hover{background: RGBA(0,0,0,.3);}
+		#prev{left: 30px;}
+		#next{right: 30px;}
+		.button1{
+			position: absolute;
+			display: none;
+			float: left;
+			font-size: 40px;
+			font-weight: bold;
+			text-decoration: center;
+			height: 40px;
+			width: 40px;
+			line-height: 40px;
+			bottom: 10px;
+			font-family: "微软雅黑";
+			color:RGBA(255,255,255,.7);
+			cursor: pointer;
+		}
+		#start{left: 630px;}
+		#stop1{left: 730px;}
