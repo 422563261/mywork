@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>boss2</title>
+</head>
+<body>
+	<ul class="e_focus_slides clrfix">
+<li class="slides-list fl">
+    <ul class="page clrfix" data-page="3" data-travelerCnt="48", data-size="20">
+        <li class="page-list fl">
+            <div class="favicon">
+                <img src="..." alt="" />
+                <span class="zhezhao pngfix">
+                </span>
+            </div>
+            <p class="userName">
+                andycall
+            </p>
+        </li>
+        <li class="page-list fl">
+            <div class="favicon">
+                <img src="..." alt="" />
+                <span class="zhezhao pngfix">
+                </span>
+            </div>
+            <p class="userName">
+                boolean93
+            </p>
+        </li>
+        <li class="page-list fl">
+            <div class="favicon">
+                <img src="..." alt="" />
+                <span class="zhezhao pngfix">
+                </span>
+            </div>
+            <p class="userName">
+                zeroling
+            </p>
+        </li>
+        <li class="page-list fl">
+            <div class="favicon">
+                <img src="..." alt="" />
+                <span class="zhezhao pngfix">
+                </span>
+            </div>
+            <p class="userName">
+                lecion
+            </p>
+        </li>
+    </ul>
+</li>
+</ul>
+</body>
+<script>
+var inf = document.getElementsByTagName('ul');//各种information
+var img = document.getElementsByTagName('img');//图片地址
+var pag = inf[1].getAttribute('data-page');//page
+var tra = inf[1].getAttribute('data-travelerCnt');//travelerCnt
+var siz = inf[1].getAttribute('data-size');//size
+var trav = [
+	 {"nickName":document.getElementsByTagName('p')[0].firstChild.nodeValue,"userImg":document.getElementsByTagName('img')[0].getAttribute('src')},
+        {"nickName":document.getElementsByTagName('p')[1].firstChild.nodeValue,"userImg":document.getElementsByTagName('img')[1].getAttribute('src')},
+        {"nickName":document.getElementsByTagName('p')[2].firstChild.nodeValue,"userImg":document.getElementsByTagName('img')[2].getAttribute('src')},
+        {"nickName":document.getElementsByTagName('p')[3].firstChild.nodeValue,"userImg":document.getElementsByTagName('img')[3].getAttribute('src')}
+]
+	var data = {};
+	data.page=pag;
+	data.travelers=tra;
+	data.size=siz;
+	data.travelers=trav;
+
+var txt=JSON.stringify(data);
+alert(txt);
+</script>
+</html>
