@@ -53,24 +53,34 @@
 </ul>
 </body>
 <script>
-var inf = document.getElementsByTagName('ul');//各种information
-var img = document.getElementsByTagName('img');//图片地址
-var pag = inf[1].getAttribute('data-page');//page
-var tra = inf[1].getAttribute('data-travelerCnt');//travelerCnt
-var siz = inf[1].getAttribute('data-size');//size
-var trav = [
-	 {"nickName":document.getElementsByTagName('p')[0].firstChild.nodeValue,"userImg":document.getElementsByTagName('img')[0].getAttribute('src')},
-        {"nickName":document.getElementsByTagName('p')[1].firstChild.nodeValue,"userImg":document.getElementsByTagName('img')[1].getAttribute('src')},
-        {"nickName":document.getElementsByTagName('p')[2].firstChild.nodeValue,"userImg":document.getElementsByTagName('img')[2].getAttribute('src')},
-        {"nickName":document.getElementsByTagName('p')[3].firstChild.nodeValue,"userImg":document.getElementsByTagName('img')[3].getAttribute('src')}
-]
-	var data = {};
-	data.page=pag;
-	data.travelers=tra;
-	data.size=siz;
-	data.travelers=trav;
-
-var txt=JSON.stringify(data);
-alert(txt);
+function getData(obj){
+    var Data = {};
+    var Page = obj.getAttribute('data-page');
+    var Travelers = [];
+    var TravelerCnt = obj.getAttribute('data-travelerCnt');
+    var Size = obj.getAttribute('data-size');
+    var Childrens = obj.getElementsByTagName('li');
+    for(var i = 0;i < Childrens.length;i++){
+        var traData = {};
+        traData.nickName = Childrens[i].getElementsByTagName('p')[0].innerHTML;
+        traData.userImg = Childrens[i].getElementsByTagName('img')[0].getAttribute('src');
+        travelers.push(traData);
+    }
+    Data.page = Page;
+    Data.travelers = Travelers;
+    Data.travelerCnt = TravelerCnt;
+    Data.size = Size;
+    var data = JSON.stringify(Data);
+    console.log(data);
+}
+var obj = function(){
+    var Obj = document.getElementsByTagName('ul');
+    for(var i = 0;i < Obj.length;i++){
+        var str = Obj[i].getAttribute('class');
+        if(str == "page clrfix"){
+            return Obj[i];
+        }
+    }
+}
 </script>
 </html>
