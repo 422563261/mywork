@@ -10,42 +10,42 @@
     <ul class="page clrfix" data-page="3" data-travelerCnt="48", data-size="20">
         <li class="page-list fl">
             <div class="favicon">
-                <img src="..." alt="" />
+                <img src="111" alt="" />
                 <span class="zhezhao pngfix">
                 </span>
             </div>
             <p class="userName">
-                andycall
+                苹果
             </p>
         </li>
         <li class="page-list fl">
             <div class="favicon">
-                <img src="..." alt="" />
+                <img src="222" alt="" />
                 <span class="zhezhao pngfix">
                 </span>
             </div>
             <p class="userName">
-                boolean93
+                三星
             </p>
         </li>
         <li class="page-list fl">
             <div class="favicon">
-                <img src="..." alt="" />
+                <img src="333" alt="" />
                 <span class="zhezhao pngfix">
                 </span>
             </div>
             <p class="userName">
-                zeroling
+                华为
             </p>
         </li>
         <li class="page-list fl">
             <div class="favicon">
-                <img src="..." alt="" />
+                <img src="444" alt="" />
                 <span class="zhezhao pngfix">
                 </span>
             </div>
             <p class="userName">
-                lecion
+                小米
             </p>
         </li>
     </ul>
@@ -53,18 +53,18 @@
 </ul>
 </body>
 <script>
-function getData(obj){
+function getData(){
     var Data = {};
-    var Page = obj.getAttribute('data-page');
+    var Page = obj().getAttribute('data-page');
     var Travelers = [];
-    var TravelerCnt = obj.getAttribute('data-travelerCnt');
-    var Size = obj.getAttribute('data-size');
-    var Childrens = obj.getElementsByTagName('li');
+    var TravelerCnt = obj().getAttribute('data-travelerCnt');
+    var Size = obj().getAttribute('data-size');
+    var Childrens = obj().getElementsByTagName('li');
     for(var i = 0;i < Childrens.length;i++){
         var traData = {};
         traData.nickName = Childrens[i].getElementsByTagName('p')[0].innerHTML;
         traData.userImg = Childrens[i].getElementsByTagName('img')[0].getAttribute('src');
-        travelers.push(traData);
+        Travelers.push(traData);
     }
     Data.page = Page;
     Data.travelers = Travelers;
@@ -82,5 +82,7 @@ var obj = function(){
         }
     }
 }
+getData();
+
 </script>
 </html>
