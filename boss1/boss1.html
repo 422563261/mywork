@@ -8,6 +8,7 @@
    
 </body>
 <script type="text/javascript">
+
 function addLoadEvent (func) {
     var oldonload = window.onload;
     if (typeof window.onload != "function") {
@@ -68,9 +69,9 @@ function loadXMLDoc(){
         if (xmlhttp.readyState==4 && xmlhttp.status==200){
             var txt=xmlhttp.responseText;
             var obj=JSON.parse(txt);
+            var Data=obj.data;
             ////
             ul_1=document.getElementsByTagName('ul')[1];
-            var Data=obj.data;
             ul_1.setAttribute("data-page",Data.page);
             ul_1.setAttribute("data-travelerCnt",Data.travelerCnt);
             ul_1.setAttribute("data-size",Data.size);
