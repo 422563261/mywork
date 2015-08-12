@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>boss2</title>
+</head>
+<body>
+	<ul class="e_focus_slides clrfix">
+<li class="slides-list fl">
+    <ul class="page clrfix" data-page="3" data-travelerCnt="48", data-size="20">
+        <li class="page-list fl">
+            <div class="favicon">
+                <img src="111" alt="" />
+                <span class="zhezhao pngfix">
+                </span>
+            </div>
+            <p class="userName">
+                苹果
+            </p>
+        </li>
+        <li class="page-list fl">
+            <div class="favicon">
+                <img src="222" alt="" />
+                <span class="zhezhao pngfix">
+                </span>
+            </div>
+            <p class="userName">
+                三星
+            </p>
+        </li>
+        <li class="page-list fl">
+            <div class="favicon">
+                <img src="333" alt="" />
+                <span class="zhezhao pngfix">
+                </span>
+            </div>
+            <p class="userName">
+                华为
+            </p>
+        </li>
+        <li class="page-list fl">
+            <div class="favicon">
+                <img src="444" alt="" />
+                <span class="zhezhao pngfix">
+                </span>
+            </div>
+            <p class="userName">
+                小米
+            </p>
+        </li>
+    </ul>
+</li>
+</ul>
+</body>
+<script>
+function getData(){
+    var Data = {};
+    var Page = obj().getAttribute('data-page');
+    var Travelers = [];
+    var TravelerCnt = obj().getAttribute('data-travelerCnt');
+    var Size = obj().getAttribute('data-size');
+    var Childrens = obj().getElementsByTagName('li');
+    for(var i = 0;i < Childrens.length;i++){
+        var traData = {};
+        traData.nickName = Childrens[i].getElementsByTagName('p')[0].innerHTML;
+        traData.userImg = Childrens[i].getElementsByTagName('img')[0].getAttribute('src');
+        Travelers.push(traData);
+    }
+    Data.page = Page;
+    Data.travelers = Travelers;
+    Data.travelerCnt = TravelerCnt;
+    Data.size = Size;
+    var data = JSON.stringify(Data);
+    console.log(data);
+}
+var obj = function(){
+    var Obj = document.getElementsByTagName('ul');
+    for(var i = 0;i < Obj.length;i++){
+        var str = Obj[i].getAttribute('class');
+        if(str == "page clrfix"){
+            return Obj[i];
+        }
+    }
+}
+getData();
+
+</script>
+</html>

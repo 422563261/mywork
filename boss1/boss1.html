@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOL</title>
+</head>
+<body>
+   
+</body>
+<script type="text/javascript">
+
+function addLoadEvent (func) {
+    var oldonload = window.onload;
+    if (typeof window.onload != "function") {
+        window.onload=func;
+    }
+    else{
+        window.onload=function(){
+            oldonload();
+            func();
+        }
+    }
+}
+addLoadEvent(webhtml);
+addLoadEvent(loadXMLDoc);
+//////
+function webhtml(){
+       var ulist1=document.createElement("ul");//第一个ul
+       var ulist2=document.createElement("ul");//没参与循环的第二个ul
+       var list1=document.createElement("li");//第一个li
+       ulist1.setAttribute("class","e_focus_slides clrfix");
+       list1.setAttribute("class","slides-list fl");
+       ulist2.setAttribute("class","page clrfix");
+       document.body.appendChild(ulist1);
+       ulist1.appendChild(list1);
+       list1.appendChild(ulist2);
+       ////////
+    for (var i = 0; i < 4; i++) {//函数重复执行4次
+        var list=document.createElement("li");//创造参与循环的li标签
+        var ulist=document.createElement("ul");//创造参与循环的ul标签
+        var division=document.createElement("div");//创造参与循环的div标签
+        var imagination=document.createElement("img");//创造参与循环的img标签
+        var spanation=document.createElement("span");//创造参与循环的span标签
+        var para=document.createElement("p");//创造参与循环的p标签
+        /////各种标签进行排序
+        list.setAttribute("class","page-list fl");
+        division.setAttribute("class","favicon");
+        spanation.setAttribute("class","zhezhao pngfix");
+        para.setAttribute("class","userName");
+        ulist2.appendChild(list);
+        list.appendChild(para);
+        list.insertBefore(division,para);
+        division.appendChild(spanation);
+        division.insertBefore(imagination,spanation);
+         };
+}
+//////////
+function loadXMLDoc(){
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+     }
+    else
+     {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+     }
+    xmlhttp.onreadystatechange=function(){
+        if (xmlhttp.readyState==4 && xmlhttp.status==200){
+            var txt=xmlhttp.responseText;
+            var obj=JSON.parse(txt);
+            var Data=obj.data;
+            ////
+            ul_1=document.getElementsByTagName('ul')[1];
+            ul_1.setAttribute("data-page",Data.page);
+            ul_1.setAttribute("data-travelerCnt",Data.travelerCnt);
+            ul_1.setAttribute("data-size",Data.size);
+            ////
+            var imf=obj.data.travelers;
+            var img=document.getElementsByTagName('img');
+            var p=document.getElementsByTagName('p');
+            for (var i = 0; i < img.length; i++) {
+                var name=document.createTextNode(imf[i].nickName);
+                img[i].setAttribute("src",imf[i].userImg);
+                p[i].appendChild(name);
+            };
+
+        }
+    }
+    xmlhttp.open("GET","echo.php",true);
+    xmlhttp.send(null);
+    }
+</script>
+</html>
